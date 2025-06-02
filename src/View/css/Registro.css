@@ -10,8 +10,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 0;
+  align-items: flex-start; /* Cambia de center a flex-start para bajarlo */
+  padding: 120px 0; /* Aumenta el espacio superior */
 }
 
 .registro-container {
@@ -19,24 +19,23 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
-  padding: 40px 20px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
 .registro-form-wrapper {
   background-color: #fff;
-  border-radius: 20px;
-  padding: 60px;
+  border-radius: 10px;
+  padding: 40px;
   width: 100%;
-  max-width: 700px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  max-width: 700px; /* Amplía el ancho máximo */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .registro-form-wrapper h2 {
   color: #333;
-  margin-bottom: 40px;
-  font-size: 36px;
+  margin-bottom: 20px;
+  font-size: 24px;
   font-weight: 700;
   text-align: center;
 }
@@ -49,7 +48,7 @@
 }
 
 .form-group {
-  margin-bottom: 35px;
+  margin-bottom: 20px; /* Reduce el espacio entre los campos */
   text-align: left;
   padding: 0 10px;
   box-sizing: border-box;
@@ -65,20 +64,20 @@
 
 .registro-form label {
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 10px; /* Reduce el espacio debajo de las etiquetas */
   font-weight: bold;
   color: #333;
-  font-size: 20px;
+  font-size: 16px; /* Reduce el tamaño de las etiquetas */
 }
 
 .registro-form input,
 .registro-form select {
   width: 100%;
-  padding: 18px 20px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
+  padding: 10px; /* Reduce el padding interno de los campos */
+  border: 1px solid #ddd;
+  border-radius: 5px; /* Reduce el borde redondeado */
   box-sizing: border-box;
-  font-size: 18px;
+  font-size: 14px; /* Reduce el tamaño de la fuente */
   transition: all 0.3s ease;
   background-color: #fff;
   color: black; /* Cambia el color de la letra a negro */
@@ -112,22 +111,22 @@
   background-color: #65A6D6;
   color: white;
   border: none;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 12px; /* Reduce el tamaño del botón */
+  border-radius: 5px; /* Reduce el borde redondeado */
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px; /* Reduce el tamaño de la fuente del botón */
   font-weight: bold;
   width: 100%;
   transition: all 0.3s ease;
-  margin-top: 20px;
+  margin-top: 10px; /* Reduce el espacio superior del botón */
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .registro-form button:hover {
   background-color: #4a90d6;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .registro-form button:active {
@@ -138,8 +137,8 @@
 .login-link {
   display: flex;
   justify-content: center;
-  margin-top: 35px;
-  font-size: 18px;
+  margin-top: 15px; /* Reduce el espacio superior del enlace */
+  font-size: 14px; /* Reduce el tamaño de la fuente */
 }
 
 .login-link a {

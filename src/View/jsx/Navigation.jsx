@@ -42,7 +42,7 @@ function Navigation({ userType }) {
         </div>
         <div className="nav-right">
           <ul>
-            {userType ? (
+            {userType === "cliente" || userType === "admin" ? (
               <>
                 <li>
                   <Link to="/perfil">

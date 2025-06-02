@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../css/Login.css';
 
-const Login = () => {
+const Login = ({ setUserType }) => {
   const [formData, setFormData] = useState({
     emailUsuario: '',
     contraseñaUsuario: ''
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,10 +17,27 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar los datos al servidor y autenticar
-    console.log('Datos de login:', formData);
+
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setUserType(data.role); // Actualiza el tipo de usuario ("cliente" o "admin")
+        navigate('/'); // Redirige al inicio
+      } else {
+        alert('Credenciales incorrectas');
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+    }
   };
 
   return (
@@ -27,9 +45,6 @@ const Login = () => {
       <div className="login-container">
         <div className="login-form-wrapper">
           <h2>Iniciar Sesión</h2>
-          {/* Puedes agregar un div de alerta aquí si lo necesitas */}
-          {/* <div className="alert">Mensaje de error</div> */}
-          
           <form className="login-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="emailUsuario">Correo Electrónico</label>
@@ -44,7 +59,6 @@ const Login = () => {
                 placeholder="ejemplo@correo.com"
               />
             </div>
-            
             <div className="form-group">
               <label htmlFor="contraseñaUsuario">Contraseña</label>
               <input
@@ -58,12 +72,7 @@ const Login = () => {
                 placeholder="Ingresa tu contraseña"
               />
             </div>
-            
             <button type="submit">Iniciar Sesión</button>
-            
-            <div className="register-links">
-              <p>¿No tienes una cuenta? <Link to="/registro">Registrarse</Link></p>
-            </div>
           </form>
         </div>
       </div>
